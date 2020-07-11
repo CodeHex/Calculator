@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Data;
-using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Calculator2
 {
     public partial class Form1 : Form
-    {//setting variables
-
+    {
+        // setting variables
         Double ResultValue = 0;
         Double MemValue = 0;
         String OperationPerformed = "";
@@ -27,40 +25,25 @@ namespace Calculator2
         DateTime olddate = new DateTime(1, 1, 1);
         DateTime newdate = new DateTime(1, 1, 1);
 
-
-
-
-
-
-
         public Form1()
         {
             Application.EnableVisualStyles();
             InitializeComponent();
-            //Application.Run(new Form1());
-            // }
-            // public Form1()
-            // {
             FlowLayoutPanel panel = new FlowLayoutPanel();
             panel.AutoSize = true;
             panel.FlowDirection = FlowDirection.TopDown;
-            //panel.Controls.Add(TextBox1);
+
             this.Controls.Add(panel);
 
             this.KeyPreview = true;
             this.KeyPress +=
                 new KeyPressEventHandler(Form1_KeyPress);
 
-            //TextBox1.KeyPress +=
-            // new KeyPressEventHandler(TextBox1_KeyPress);
         }
         void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar >= 40 && e.KeyChar <= 57)
             {
-                //MessageBox.Show("Form.KeyPress: " +
-                //e.KeyChar.ToString() + e.KeyChar);
-
                 switch (e.KeyChar)
                 {
                     case (char)40:
@@ -120,29 +103,6 @@ namespace Calculator2
                 BackSpace.PerformClick();
             if (e.KeyChar == 61 || e.KeyChar == 13)
                 answer.PerformClick();
-            //if (e.KeyChar == 94)
-            //    power.PerformClick();
-            //Ctrl C
-            //if (e.KeyChar == 3)
-            //System.Windows.Forms.Clipboard.SetText(TextResult.Text);
-            //ctrl V
-            //if (e.KeyChar == 22)
-            //{
-            //check if paste will be decimal
-            //PasteText = System.Windows.Forms.Clipboard.GetText();
-            //decimal PasteCheck;
-            //if (Decimal.TryParse(PasteText, out PasteCheck))
-            //{
-            //    TextResult.Text = PasteText;
-            //    MemRecall1 = true;
-            // }
-            //}
-            //ctrl X
-            //if (e.KeyChar == 24)
-            //{
-            //  System.Windows.Forms.Clipboard.SetText(TextResult.Text);
-            //TextResult.Text = "0";
-            // }
             e.Handled = true;
             ErrorLabel.Focus();
 
